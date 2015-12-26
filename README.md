@@ -10,13 +10,14 @@ make it much easier to install.
 First build the docker container.
 
 ```bash
-  $ ./build_docker.sh
+$ ./build_docker.sh
 ```
 
 Then run a shell in the container.
 
-```$ ./run_docker.sh
-  root@17d2ed3096e5:/docs# jekyll serve
+```bash
+$ ./run_docker.sh
+root@17d2ed3096e5:/docs# jekyll serve
 ```
 
 
