@@ -19,7 +19,7 @@ be validated.
 {
   "route"           : "/clientCode",
   "msgId"           : "123",
-  "clientCode"      : "1b4e28ba-2fa1-11d2-883f-0016d3cca427",
+  "clientCode"      : "1b4e28ba-2fa1-11d2-883f-0016d3cca427"
 }
 {% endhighlight %}
 
@@ -41,8 +41,8 @@ This is the async response of the server to the client **/clientCode** message.
   "msgId"           : "123",
   "code"            : "0",
   "message"         : "Success",
-  "content"            : {
-    "clientCode"      : "1b4e28ba-2fa1-11d2-883f-0016d3cca427",
+  "content"         : {
+    "clientCode"      : "1b4e28ba-2fa1-11d2-883f-0016d3cca427"
   }
 }
 {% endhighlight %}
@@ -68,10 +68,10 @@ This is the first stage of registration where a username and email address are s
 }
 {% endhighlight %}
 
-###username
+### username
 This must be a unique name, not currently used by any other account.
 
-###email
+### email
 This must be a valid email address which is not registered against any other empire
 name.
 
@@ -91,17 +91,17 @@ This will be a **Standard Response** with the following data.
   "code"            : "0",
   "message"         : "Success",
   "data"            : {
-    "username"          : "james_bond",
-    "loginStage"        : "enterEmailCode"
+    "username"        : "james_bond",
+    "loginStage"      : "enterEmailCode"
   }
 }
 {% endhighlight %}
 
-###username
+### username
 
 The username requested in the Client request will be returned.
 
-###loginStage
+### loginStage
 
 This shows the current registration stage, **enterEmailCode** indicates that 
 the user needs to validate their email address by entering the Email 
@@ -126,7 +126,7 @@ confirm the users email address and complete the second stage of registration.
 {% endhighlight %}
 
 
-###emailCode
+### emailCode
 
 The **emailCode** provided in the email sent to the user needs to be supplied.
 
@@ -147,12 +147,12 @@ of the registration.
   "code"            : "0",
   "message"         : "Success",
   "content"         : {
-    "loginStage"       "requireNewPassword"
+    "loginStage"      : "requireNewPassword"
   }
 }
 {% endhighlight %}
 
-###loginStage
+### loginStage
 
 This specifies the next stage of the registration process, the user is required
 to enter a new password.
@@ -175,7 +175,7 @@ they can access their account.
 }
 {% endhighlight %}
 
-###password
+### password
 
 The **password** needs to be at least five characters, include upper-case and
 lower-case characters and numeric characters.
@@ -195,12 +195,12 @@ In response to the Enter New Password call, the server will send an acknowledgem
   "code"            : "0",
   "message"         : "Success",
   "content"         : {
-    "loginStage"       "loggedIn"
+    "loginStage"      : "loggedIn"
   }
 }
 {% endhighlight %}
 
-###loginStage
+### loginStage
 
 This shows that the user is now logged into the system.
 
@@ -223,10 +223,10 @@ Normal login is by specifying a username and password.
 {% endhighlight %}
 
 
-###username
+### username
 The username to log in by.
 
-###password
+### password
 The password.
 
 The server will respond (asynchronously) with the following message.
@@ -245,12 +245,12 @@ of the registration.
   "code"            : "0",
   "message"         : "Success",
   "content"         : {
-    "loginStage"       "loggedIn"
+    "loginStage"      : "loggedIn"
   }
 }
 {% endhighlight %}
 
-###loginStage
+### loginStage
 
 This shows that the user is now logged into the system.
 

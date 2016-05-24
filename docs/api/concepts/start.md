@@ -3,6 +3,23 @@ layout: article
 title: Start
 ---
 
+
+{% include section_title.html title="Architecture" %}
+
+There are two main components, the Server code written predominantly in Perl
+and the client code written in Javascript (using ReactJS). In addition user
+code can be run on the servers in Docker containers. This allows user code
+to be written in a variety of languages (Javascript, Perl, Ruby, Python)
+but in a secure manner.
+
+The Client code is a single-page-app which communicates through a Web-Socket
+API to the server. The user code running in docker containers also
+communicates via web-sockets.
+
+Since the API is open-source then this offers the opportunity for third-party
+clients to be written which can be used to drive a users empire.
+
+
 {% include section_title.html title="Web Sockets" %}
 
 SpaceBotWar predominately uses Web Socket technology. This offers significant
@@ -24,7 +41,6 @@ requirement for Javascript and we can provide libraries for other languages
 such as Perl.
 
 
-
 {% include section_title.html title="Message Format" %}
 
 Messages both to, and from, the Server are in JSON encoded strings. For
@@ -44,12 +60,12 @@ example the following represents a client Login request.
 
 This message is from the Client to the Server.
 
-###route
+### route
 
 This is the address, or route, to the server code that will handle the 
 request.
 
-###msgId
+### msgId
 
 This is a unique identifier (usually a number) that ties together the Client
 request with the asynchronous reply by the Server. It can most easily be
@@ -62,7 +78,7 @@ If the msgId is not supplied the server will not include a msgId in it's respons
 If it is a server initiated message (for example a 'welcome' message) then
 no **msgId** will be included.
 
-###clientCode
+### clientCode
 
 A Client Code is used to identify a client to the server. A Client Code is initially 
 provided by the server and once given it should continue to be used by that
@@ -119,7 +135,7 @@ On making a successful connection the server will send a Welcome message as foll
 {% include section_header.html method="SERVER" url="/welcome" title="Welcome" %}
 
 When a client makes a Web Socket connection, the server will send a message indicating the
-current status of the room. It may also send an update whenever the server status changes.
+current status. It may also send an update whenever the server status changes.
 
 {% highlight JSON %}
 {
@@ -135,15 +151,15 @@ current status of the room. It may also send an update whenever the server statu
 }
 {% endhighlight %}
 
-###code
+### code
 
 The status of the **server** where **0** represents success.
 
-###message
+### message
 
 A human readable message.
 
-###data
+### data
 
 Optional additional information, TODO (example is indicative)
 
@@ -177,20 +193,20 @@ described here and referred to as a **Standard Response**
 }
 {% endhighlight %}
 
-###code
+### code
 
 The status of the **server** where **0** represents success, any other value represents failure.
 
-###msgId
+### msgId
 
 Where provided in the Client request, the same **msgId** will be returned in the Server response.
 If not provided, this field will not be supplied.
 
-###message
+### message
 
 A human readable message.
 
-###data
+### data
 
 Optional additional information. This will be described in the relevant section of the API
 documentation.
